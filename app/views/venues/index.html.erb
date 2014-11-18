@@ -21,7 +21,7 @@
       <tr>
         <td><%= venue.name %></td>
         <td><%= venue.address %></td>
-        <td><%= venue.neighborhood_id %></td>
+        <td><%= Neighborhood.find(venue.neighborhood_id).name %></td>
         <td>
           <a href="/venues/<%= venue.id %>" class="btn btn-primary">
             <i class="fa fa-search-plus"></i>

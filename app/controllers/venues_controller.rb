@@ -9,6 +9,8 @@ class VenuesController < ApplicationController
   def show
     @venue = Venue.find(params[:id])
 
+    @venue_favorites = Favorite.where({:venue_id => @venue.id})
+
     url_safe_address = URI.encode(@venue.address)
     url_of_data = "http://maps.googleapis.com/maps/api/geocode/json?address=#{url_safe_address}"
     raw_data = open(url_of_data).read

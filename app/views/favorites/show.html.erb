@@ -4,13 +4,13 @@
 
 <dl class="dl-horizontal">
   <dt>User</dt>
-  <dd><%= @favorite.user_id %></dd>
+  <dd><%= User.find(@favorite.user_id).username %></dd>
 
   <dt>Dish</dt>
-  <dd><%= @favorite.dish_id %></dd>
+  <dd><%= Dish.find(@favorite.user_id).name %></dd>
 
   <dt>Venue</dt>
-  <dd><%= @favorite.venue_id %></dd>
+  <dd><%= Venue.find(@favorite.user_id).name %></dd>
 
   <dt>Notes</dt>
   <dd><%= @favorite.notes %></dd>

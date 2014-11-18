@@ -7,13 +7,22 @@
   <dd><%= @venue.name %></dd>
 
   <dt>Neighborhood ID</dt>
-  <dd><%= @venue.neighborhood_id %></dd>
+  <dd><%= Neighborhood.find(@venue.neighborhood_id).name %></dd>
 
   <dt>Address</dt>
   <dd><%= @venue.address %></dd>
 
   <dt>Latitude</dt>
   <dd><%= @latitude %></dd>
+
+  <dt>Favorites</dt>
+  <dd>
+    <ul>
+      <% @venue_favorites.each do |favorite| %>
+        <li><strong><%= Dish.find(favorite.dish_id).name %></strong> (favorite of <strong><%= User.find(favorite.user_id).username %>)</strong></li>
+      <% end %>
+    </ul>
+  </dd>
 
   <dt>Longitude</dt>
   <dd><%= @longitude %></dd>
